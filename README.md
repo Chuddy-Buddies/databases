@@ -1,3 +1,2 @@
 # databases
-This is Ahmed Ateeq. 
-CS King.
+please type in your names if you have access!
