@@ -1,0 +1,121 @@
+
+Create table account(
+ username     varchar(30),   
+ accountName         VARCHAR(15),
+ Password     varchar(15),
+ primary key (username)
+);
+
+create table guest
+( guestID    VARchar(15) , 
+  guestname   VARchar(15),
+  username  VARchar(30),
+  gender      VARchar(1),
+  age            numeric(3),
+  email         varchar(50),
+  primary key(guestID),
+  foreign key (username) references account
+) ;
+
+create table admin
+(
+adminID     varchar(15) ,
+username     varchar(30) ,
+adminName     varchar(15),
+gender      char(1) ,
+age            numeric(3),
+ email         varchar(50),
+primary key (adminID),
+foreign key (username) references account
+
+) ; 
+
+
+create table guestPay
+(
+paymentID  varchar(15),
+guestID      varchar(15),
+primary key (paymentID,guestID)
+);
+
+create table bookings
+( bookingID               varchar(15) ,
+  roomID                    varchar(15),
+  guestID                   varchar(15),
+  bookingDate           DATE,
+  startDate                 DATE,
+  endDate                  DATE,
+  primary key(bookingID),
+foreign key (guestID) references guest,
+foreign key(roomID) references guest) ;
+
+
+
+create table payments
+( paymentID          varchar(15),
+  bookingID           varchar(15),
+  amount                numeric(10,0),
+  paymentStatus     char(1),
+  paymentDate       DATE,
+  primary key (paymentID),
+  foreign key (bookingID) references bookings
+);
+
+
+
+create table menu
+( foodID                    varchar(15),
+foodItem                   varchar(15),
+type                       VARCHAR(10),      
+price                 numeric(5,0),      
+available           char(1),
+primary key(foodID));
+
+create table roomservice
+( orderID                  varchar(15),
+guestID                     varchar(15),
+foodID                       varchar(15),
+delieveryStats            char(1),
+orderDate                  DATE,
+primary key(orderID),
+foreign key (guestID) references guest,
+foreign key (foodID) references menu);
+
+create table rooms
+( roomID                     varchar(15),
+   guestID                    varchar(15),
+    type                        char(1),
+   price                numeric(10,0),                
+    available          char(1),
+primary key (roomID),
+foreign key (guestID) references guest);
+
+
+create table checkIn
+(
+roomID              varchar(15),
+guestID              varchar(15),
+status                 char(1),
+primary key (roomID, guestID),
+);
+
+create table rewards
+(
+rewardID                varchar(15),
+guestID                   varchar(15),
+status                      char(1),
+primary key (rewardID),
+foreign key (guestID) references guest);
+
+create table employee(
+employeeID   varchar(15),
+empName     varchar(30),
+username   varchar(15),
+gender      char(1),
+age            numeric(3),
+ email         varchar(50),
+level         char(1),
+primary key (employeeID),
+foreign key (username) references account
+);
+
