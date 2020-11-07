@@ -1,4 +1,3 @@
 # databases
-please type in your names if you have access!
+Schema, ER diagram, SQL file, sqli file are uploaded.
 
-Saad Imran Rana
