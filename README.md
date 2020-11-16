@@ -1,3 +1,3 @@
-# databases
-SRS, Schema, ER diagram, SQL file, sqli file are uploaded.
+## Databases
+#SRS, Schema, ER diagram, SQL file, sqli file are uploaded.
 
