@@ -1,0 +1,25 @@
+U-1 (Sign-Up)
+
+UPDATE Buyer, Seller
+	set User = case
+                when User = 'Buyer' then insert into Buyer values (Buyer_Username, F_name, L_name, Password, Buyer_Class, Status)
+                else if User = 'Seller' then insert into Seller values (Seller_Username, F_name, L_name, Password, Rating, Status)
+				end
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+U-2 (Log-In)
+
+Set User = case
+			when User = 'Buyer' then SELECT Buyer_Username, Password FROM Buyer WHERE entered_username = Buyer_Username and entered_Passwd = Password
+				IF(entered_username <> Buyer_Username or entered_Passwd <> Password, "Invalid Username or Password entered.", "Access Granted.")
+			else if User = 'Seller' then SELECT Seller_Username, Password FROM Seller WHERE entered_username = Seller_Username and entered_Passwd = Password
+				IF(entered_username <> Seller_Username or entered_Passwd <> Password, "Invalid Username or Password entered.", "Access Granted.")
+			end
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////	
+U-3 (Browse Artwork)
+
+SELECT *
+FROM Artwork
+WHERE entered_username = Seller_Username or entered_ID = Artwork_ID
+GROUP BY Artwork_ID
