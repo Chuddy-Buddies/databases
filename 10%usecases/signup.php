@@ -44,7 +44,7 @@ session_start();
             $stmt->execute();
             echo "SIGN UP SUCCESSFUL!!!!";
 
-            header("Location:Buyer_updateinfo.html")
+            header("Location:Buyer_updateinfo.html");
         }
         else{
         echo "BUYER PLEASE SELECT ANOTHER USERNAME";
@@ -65,7 +65,7 @@ session_start();
             $stmt->execute();
             echo "SIGN UP SUCCESSFUL!!!!";
 
-            header("Location:Seller_updateinfo.html")
+            header("Location:Seller_updateinfo.html");
         }
         else{
         echo "SELLER PLEASE SELECT ANOTHER USERNAME";
