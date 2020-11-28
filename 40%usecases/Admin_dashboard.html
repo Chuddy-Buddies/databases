@@ -189,29 +189,28 @@
 </nav>
 
 
+<!-- Insert it into Ahmed's code -->
 <!-- Container update -->
 <div id="updateinfo" >
-<div class="container">
-  <h1 class="text-center text-capitalize pt-5">Add Administrator</h1>
-  <hr class="w 25 mx-auto pt-5">
-<div class="w-50 mx-auto">
-  <form action="/action_page.php">
-    <div class="form-group">
-      <label>Username: </label>
-      <input  class="form-control" id="buyer_fname" autocomplete="off">
-    </div>
-
-        <div class="form-group">
-      <label>Password:</label>
-      <input  class="form-control" id="buyer_lname" autocomplete="off">
-    </div>
-
-
-    <button type="save" class="btn btn-default">Save & Exit</button>
-  </form>
-</div>
-</div>
-</div>
+  <div class="container">
+    <h1 class="text-center text-capitalize pt-5">Add Administrator</h1>
+    <hr class="w 25 mx-auto pt-5">
+  <div class="w-50 mx-auto">
+    <form action="add_admin.php" method = "post">
+      <div class="form-group">
+        <label>Username: </label>
+        <input  class="form-control" id="buyer_fname" autocomplete="off" name = "username">
+      </div>
+  
+          <div class="form-group">
+        <label>Password:</label>
+        <input  class="form-control" id="buyer_lname" autocomplete="off" name = "password">
+      </div>
+      <button type="save" class="btn btn-default">Save & Exit</button>
+    </form>
+  </div>
+  </div>
+  </div>
 
 
 
@@ -222,24 +221,32 @@
   <hr class="w 25 mx-auto pt-5">
 <div class="w-50 mx-auto">
 
-  <form class="form-inline" action="/action_page.php">
+  <form class="form-inline" action = "filter_transactions.php" method = "post">
 <div class="form-group">
  
-    <div class="form-group">
+    <div class="form-group" >
       <label for="filterdate">Enter Date: </label>
-      <input type="Search" class="form-control" id="Search" autocomplete="off">
+      <input type="text" class="form-control" id="Search" autocomplete="off" name = "Date">
     </div>
 </div>
   <div class="form-group">
       <label for="email">Enter Time: </label>
-      <input type="email" class="form-control" id="email" autocomplete="off">
+      <input type="text" class="form-control" id="email" autocomplete="off" name = "Time">
     </div>
 
+ 
     <button type="submit" class="btn btn-default">Apply Filters</button>
-    
-     <button type="submit" class="btn btn-default">View All</button>
-     <button type="submit" class="btn btn-default">Export as Excel</button>
+
+
   </form>
+  <a href="transactions.php">
+     <button type="submit" class="btn btn-default">View All</button>
+    </a>
+
+    <a href="export_transactions.php">
+     <button type="submit" class="btn btn-default">Export as Excel</button>
+    </a>
+
 </div>
 </div>
 </div>
@@ -251,13 +258,22 @@
   <h1 class="text-center text-capitalize pt-5">Block User (Buyer/Seller)</h1>
   <hr class="w 25 mx-auto pt-5">
 <div class="w-100 mx-auto">
-  <form  action="/action_page.php">
+  <form  action="block_user.php" method = "post">
     <div class="form-group">
       <label for="email">Enter User ID: </label>
-      <input type="Search" class="form-control" id="Search" autocomplete="off">
+      <input type="Search" class="form-control" id="Search" autocomplete="off" name = 'username'>
     </div>
 
- 
+
+    <div class="form-group">
+      <label for="accttype">Account Type</label>
+       <div class="radio">
+<label class="radio-inline"><input type="radio" name="accttype" value="Buyer" checked>Buyer </label>
+</div>
+<div class="radio">
+<label class="radio-inline"><input type="radio" name="accttype" value = "Seller" >Seller</label>
+</div>
+</div>
     <button type="submit" class="btn btn-default">Block</button>
   </form>
 </div>
